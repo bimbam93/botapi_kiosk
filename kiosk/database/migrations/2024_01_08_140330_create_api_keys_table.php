@@ -11,16 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('api_request_logs', function (Blueprint $table) {
+        Schema::create('api_keys', function (Blueprint $table) {
             $table->id();
-            $table->string('method');
-            $table->string('path');
-            $table->string('key')->nullable();
-            $table->text('request_data')->nullable();
-            $table->text('response_data')->nullable();
-            $table->ipAddress();
-            $table->integer('status_code');
+            $table->string('key')->unique();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
+            $table->softDeletes();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('api_logs');
+        Schema::dropIfExists('api_keys');
     }
 };

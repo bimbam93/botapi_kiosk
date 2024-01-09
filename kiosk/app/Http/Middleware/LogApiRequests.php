@@ -21,6 +21,7 @@ class LogApiRequests
         DB::table('api_request_logs')->insert([
             'method' => $request->method(),
             'path' => $request->path(),
+            'key' =>  $request->route('api_key'),
             'request_data' => json_encode($request->all()),
             'response_data' => $response->getContent(),
             'ip_address' => $request->ip(),

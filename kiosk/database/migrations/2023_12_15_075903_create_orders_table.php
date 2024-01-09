@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('order_number');
             $table->json('order_details');
             $table->dateTime('ready_at');
-
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

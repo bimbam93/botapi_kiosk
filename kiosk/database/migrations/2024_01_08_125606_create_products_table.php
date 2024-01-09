@@ -11,16 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('api_request_logs', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('method');
-            $table->string('path');
-            $table->string('key')->nullable();
-            $table->text('request_data')->nullable();
-            $table->text('response_data')->nullable();
-            $table->ipAddress();
-            $table->integer('status_code');
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->string('category');
+            $table->decimal('price', 8, 2);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('api_logs');
+        Schema::dropIfExists('products');
     }
 };
