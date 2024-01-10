@@ -28,16 +28,36 @@ class DatabaseSeeder extends Seeder
 
 
         Product::create([
-                'name' => 'Cheese Burger',
-                'description' => 'Sajt burger',
-                'category' => 'Burgerek',
-                'price' => 750
-            ]);
+            'name' => 'Cheese Burger',
+            'description' => 'Sajtos burger uborkával, ketchuppal',
+            'category' => 'Burgerek - Kicsi',
+            'price' => 750
+        ]);
+        Product::create([
+            'name' => 'Spicy Burger',
+            'description' => 'Marha burger pirított hagymával, pikáns szósszal',
+            'category' => 'Burgerek - Kicsi',
+            'price' => 800
+        ]);
+        Product::create([
+            'name' => 'HamBurger',
+            'description' => 'Ezt magyarázzam?',
+            'category' => 'Burgerek - Kicsi',
+            'price' => 700
+        ]);
+
+
         Product::create([
             'name' => 'BFarm Burger',
-            'description' => 'Mustáros marhaburger',
-            'category' => 'Burgerek',
-            'price' => 1280
+            'description' => 'Marhaburker mustáros szósszal hagymával és salátával',
+            'category' => 'Burgerek - Nagy',
+            'price' => 1290
+        ]);
+        Product::create([
+            'name' => 'BigBOT Burger',
+            'description' => 'Ha nagy és a legjobb kell.!',
+            'category' => 'Burgerek - Nagy',
+            'price' => 1690
         ]);
 
     }

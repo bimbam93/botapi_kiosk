@@ -18,7 +18,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/ping', [ApiController::class, 'index']);
 
-
 Route::get('{api_key}/products/', [KioskApiController::class, 'products'])
     ->middleware('api_key');
 
@@ -26,4 +25,7 @@ Route::get('{api_key}/orders', [KioskApiController::class, 'orders'])
     ->middleware('api_key');
 
 Route::get('{api_key}/orders/all', [KioskApiController::class, 'ordersAll'])
+    ->middleware('api_key');
+
+Route::post('{api_key}/order', [KioskApiController::class, 'order'])
     ->middleware('api_key');
