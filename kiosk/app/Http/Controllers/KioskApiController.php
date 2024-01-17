@@ -36,7 +36,7 @@ class KioskApiController extends Controller
                 ],
                 'data' => [
                     'time' => Carbon::now(),
-                    'orders' => Order::all()->where('ready_at', '>', Carbon::now()),
+                    'orders' => Order::where('ready_at', '>', Carbon::now())->get(),
                 ]
             ]);
     }
